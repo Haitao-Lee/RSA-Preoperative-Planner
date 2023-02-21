@@ -1,0 +1,50 @@
+<RCC>
+    <qresource prefix="/XNavigation">
+        <file>Resources/lamp.ico</file>
+        <file>Resources/inmeasurement.png</file>
+        <file>Resources/Coordinate.png</file>
+        <file>Resources/inCoordinate .png</file>
+        <file>Resources/measurement.ico</file>
+        <file>Resources/cut1.ico</file>
+        <file>Resources/cut2.ico</file>
+        <file>Resources/cut3.ico</file>
+        <file>Resources/return.ico</file>
+        <file>Resources/Angle.ico</file>
+        <file>Resources/error.png</file>
+        <file>Resources/inerror.png</file>
+        <file>Resources/link.png</file>
+        <file>Resources/location.ico</file>
+        <file>Resources/incontour.png</file>
+        <file>Resources/unlink.png</file>
+        <file>Resources/Start Tracking.png</file>
+        <file>Resources/contour.png</file>
+        <file>Resources/cross.ico</file>
+        <file>Resources/incross.png</file>
+        <file>Resources/inpoint.png</file>
+        <file>Resources/point.png</file>
+        <file>Resources/invisible.png</file>
+        <file>Resources/visible.png</file>
+        <file>Resources/OLAN.png</file>
+        <file>Resources/full_screen.ico</file>
+        <file>Resources/fullscreenexit.ico</file>
+        <file>Resources/reset.ico</file>
+        <file>Resources/locked.ico</file>
+        <file>Resources/unlocked.ico</file>
+        <file>Resources/green.png</file>
+        <file>Resources/red.png</file>
+        <file>Resources/add (2).ico</file>
+        <file>Resources/Deletet.ico</file>
+        <file>Resources/pin_point.ico</file>
+        <file>Resources/setting.ico</file>
+        <file>Resources/switch_624px_1158246_easyicon.net.png</file>
+        <file>Resources/tools.ico</file>
+        <file>Resources/zoomin.ico</file>
+        <file>Resources/zoomout.ico</file>
+        <file>Resources/data.ico</file>
+        <file>Resources/Connect.png</file>
+        <file>RSA Preoperative Planner-bin/Debug/resources/文件夹.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix1">
+        <file>RSA Preoperative Planner-bin/Debug/resources/设置.png</file>
+    </qresource>
+</RCC>
