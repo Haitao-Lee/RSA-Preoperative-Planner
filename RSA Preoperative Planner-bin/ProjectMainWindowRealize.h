@@ -2186,17 +2186,25 @@ void ProjectMainWindow::onSaveTXTDialog()
 		QString result = "3\n";
 		for (int i = 0;i < 3;i++)
 		{
+			double color[3] = { 0 };
+			color[i] = 1;
 			result.append(QString::number(this->m_style->finalPath[6 * i]));
 			result.append("  ");
 			result.append(QString::number(this->m_style->finalPath[6 * i + 3]));
+			result.append("  ");
+			result.append(QString::number(color[0]));
 			result.append("\n");
 			result.append(QString::number(this->m_style->finalPath[6 * i + 1]));
 			result.append("  ");
 			result.append(QString::number(this->m_style->finalPath[6 * i + 4]));
+			result.append("  ");
+			result.append(QString::number(color[1]));
 			result.append("\n");
 			result.append(QString::number(this->m_style->finalPath[6 * i + 2]));
 			result.append("  ");
 			result.append(QString::number(this->m_style->finalPath[6 * i + 5]));
+			result.append("  ");
+			result.append(QString::number(color[2]));
 			result.append("\n");
 			if (i == 1)
 			{
