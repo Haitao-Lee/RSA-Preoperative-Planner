@@ -2088,7 +2088,7 @@ public:
         actionreadme->setText(QApplication::translate("ProjectMainWindow", "readme", Q_NULLPTR));
         actionrevision->setText(QApplication::translate("ProjectMainWindow", "revision ", Q_NULLPTR));
         actionexport->setText(QApplication::translate("ProjectMainWindow", "export result", Q_NULLPTR));
-        action_obj->setText(QApplication::translate("ProjectMainWindow", "3D model(.obj)", Q_NULLPTR));
+        action_obj->setText(QApplication::translate("ProjectMainWindow", "3D model(.stl)", Q_NULLPTR));
         actionresult->setText(QApplication::translate("ProjectMainWindow", "result(.implant)", Q_NULLPTR));
         actionadd_box_widget->setText(QApplication::translate("ProjectMainWindow", "add box widget", Q_NULLPTR));
         widget->setTitle(QString());
