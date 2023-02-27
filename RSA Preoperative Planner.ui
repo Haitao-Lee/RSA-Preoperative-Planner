@@ -4373,7 +4373,7 @@ background-color:rgb(80, 80, 80);
   </action>
   <action name="action_obj">
    <property name="text">
-    <string>3D model(.obj)</string>
+    <string>3D model(.stl)</string>
    </property>
    <property name="font">
     <font>
