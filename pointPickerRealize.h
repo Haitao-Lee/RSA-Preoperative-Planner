@@ -13,7 +13,8 @@ void PickerInteractorStyle::initialize(vtkPolyData* bonePolyData, vtkActor* bone
 	this->point = new pointStore();
 	this->pointNum = point->pointNum;
 	//this->boneIMGData = boneIMGData;
-	this->bonePolyData = bonePolyData;
+	this->wholeBonePolyData = bonePolyData;
+	this->curBonePolyData = bonePolyData;
 	this->bone_cur_actor = boneActor;
 	this->bone_origin_actor = boneActor;
 	this->planeOrNot = false;
