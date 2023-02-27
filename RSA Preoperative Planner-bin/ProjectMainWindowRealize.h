@@ -1266,7 +1266,7 @@ void ProjectMainWindow::path_display()
 								 cone_normal2[2] = m_style->planeNormal[2] - vectors[2] * tan(m_style->angleOfDegree * acos(-1) / 180) * 1.2 + 0.1 * offset[2];
 							 }*/
 
-		vtkSmartPointer<vtkPoints> p1 = this->m_style->coneGenerate(this->m_style->screw_apex1, this->m_style->planeNormal, this->m_style->screwLen, this->m_style->resolution, this->m_style->angleOfDegree, dir_vectors);
+		vtkSmartPointer<vtkPoints> p1 = this->m_style->coneGenerate(this->m_style->point->getPoint(6), this->m_style->planeNormal, this->m_style->screwLen, this->m_style->resolution, this->m_style->angleOfDegree, dir_vectors);
 		double* path1_points = this->m_style->generatePath(p1, this->m_style->boneIMGData, this->m_style->screwLen, this->m_style->resolution, this->m_style->threshold1);
 		double path1_vectors[3] = { path1_points[3] - path1_points[0], path1_points[4] - path1_points[1], path1_points[5] - path1_points[2] };
 		/*double path1_vectors[3] = { m_style->generatePath(p1, m_style->boneIMGData, screwLen, m_style->resolution)[3] - m_style->generatePath(p1, m_style->boneIMGData, screwLen, m_style->resolution)[0],
@@ -1279,6 +1279,9 @@ void ProjectMainWindow::path_display()
 		this->output_pte->appendPlainText(av_path1);
 		this->m_pRenderer->RemoveActor(this->m_style->actor_cone1);
 		vtkMath::Normalize(path1_vectors);
+		this->m_style->finalPath[0] = this->m_style->point->getPoint(6)[0];
+		this->m_style->finalPath[1] = this->m_style->point->getPoint(6)[1];
+		this->m_style->finalPath[2] = this->m_style->point->getPoint(6)[2];
 		this->m_style->finalPath[3] = this->m_style->finalPath[0] + path1_vectors[0] * this->m_style->screwLen;
 		this->m_style->finalPath[4] = this->m_style->finalPath[1] + path1_vectors[1] * this->m_style->screwLen;
 		this->m_style->finalPath[5] = this->m_style->finalPath[2] + path1_vectors[2] * this->m_style->screwLen;
@@ -1338,7 +1341,7 @@ void ProjectMainWindow::path_display()
 
 		double minus_dir_vectors[3] = { -dir_vectors[0],-dir_vectors[1],-dir_vectors[2] };
 		double minus_planeNormal[3] = { -this->m_style->planeNormal[0],-this->m_style->planeNormal[1] , -this->m_style->planeNormal[2] };
-		vtkSmartPointer<vtkPoints> p2 = this->m_style->coneGenerate(this->m_style->screw_apex2, this->m_style->planeNormal, this->m_style->screwLen, this->m_style->resolution, this->m_style->angleOfDegree, minus_dir_vectors);
+		vtkSmartPointer<vtkPoints> p2 = this->m_style->coneGenerate(this->m_style->point->getPoint(7), this->m_style->planeNormal, this->m_style->screwLen, this->m_style->resolution, this->m_style->angleOfDegree, minus_dir_vectors);
 		double* path2_points = this->m_style->generatePath(p2, this->m_style->boneIMGData, this->m_style->screwLen, this->m_style->resolution, this->m_style->threshold2);
 		double path2_vectors[3] = { path2_points[3] - path2_points[0], path2_points[4] - path2_points[1], path2_points[5] - path2_points[2] };
 		/*double path2_vectors[3] = { m_style->generatePath(p2, m_style->boneIMGData, screwLen, m_style->resolution)[3] - m_style->generatePath(p2, m_style->boneIMGData, screwLen, m_style->resolution)[0],
@@ -1351,6 +1354,9 @@ void ProjectMainWindow::path_display()
 		av_path2.append(QString::number(this->m_style->avail_path));
 		this->output_pte->appendPlainText(av_path2);
 		vtkMath::Normalize(path2_vectors);
+		this->m_style->finalPath[12] = this->m_style->point->getPoint(7)[0];
+		this->m_style->finalPath[13] = this->m_style->point->getPoint(7)[1];
+		this->m_style->finalPath[14] = this->m_style->point->getPoint(7)[2];
 		this->m_style->finalPath[15] = this->m_style->finalPath[12] + path2_vectors[0] * this->m_style->screwLen;
 		this->m_style->finalPath[16] = this->m_style->finalPath[13] + path2_vectors[1] * this->m_style->screwLen;
 		this->m_style->finalPath[17] = this->m_style->finalPath[14] + path2_vectors[2] * this->m_style->screwLen;
@@ -1415,7 +1421,9 @@ void ProjectMainWindow::path_display()
 		path1_cylinder->SetRadius(1);
 		path1_cylinder->SetResolution(10);
 		path1_cylinder->SetCenter(0, 0, 0);*/
-
+		this->m_style->finalPath[9] = this->m_style->point->getPoint(1)[0];
+		this->m_style->finalPath[10] = this->m_style->point->getPoint(1)[1];
+		this->m_style->finalPath[11] = this->m_style->point->getPoint(1)[2];
 		this->m_style->finalPath[9] = this->m_style->finalPath[6] + this->m_style->planeNormal[0] * this->m_style->middleLen;
 		this->m_style->finalPath[10] = this->m_style->finalPath[7] + this->m_style->planeNormal[1] * this->m_style->middleLen;
 		this->m_style->finalPath[11] = this->m_style->finalPath[8] + this->m_style->planeNormal[2] * this->m_style->middleLen;
@@ -1819,7 +1827,7 @@ void ProjectMainWindow::onRebuildDialog()
 		this->opacity_slider->setValue(100);
 
 
-		this->m_style->bonePolyData = this->m_style->boneExtractor->GetOutput();
+		this->m_style->wholeBonePolyData = this->m_style->boneExtractor->GetOutput();
 		this->m_style->bone_cur_actor = bone;
 		this->m_style->bone_origin_actor = bone;
 
@@ -2222,6 +2230,33 @@ void ProjectMainWindow::onSaveTXTDialog()
 			}
 		}
 
+		/*vtkSmartPointer<vtkSphereSource> test_sphere1 = vtkSmartPointer<vtkSphereSource>::New();
+		test_sphere1->SetCenter(this->m_style->finalPath[0], this->m_style->finalPath[1], this->m_style->finalPath[2]);
+		test_sphere1->SetRadius(3);
+		test_sphere1->Update();
+
+		vtkSmartPointer<vtkPolyDataMapper> test_mapper1 = vtkSmartPointer<vtkPolyDataMapper>::New();
+		test_mapper1->SetInputConnection(test_sphere1->GetOutputPort());
+
+		vtkSmartPointer<vtkActor> test_actor1 = vtkSmartPointer<vtkActor>::New();
+		test_actor1->SetMapper(test_mapper1);
+		test_actor1->GetProperty()->SetColor(1, 0, 0);
+
+		this->m_pRenderer->AddActor(test_actor1);
+	
+		vtkSmartPointer<vtkSphereSource> test_sphere2 = vtkSmartPointer<vtkSphereSource>::New();
+		test_sphere2->SetCenter(this->m_style->finalPath[12], this->m_style->finalPath[13], this->m_style->finalPath[14]);
+		test_sphere2->SetRadius(3);
+		test_sphere2->Update();
+
+		vtkSmartPointer<vtkPolyDataMapper> test_mapper2 = vtkSmartPointer<vtkPolyDataMapper>::New();
+		test_mapper2->SetInputConnection(test_sphere2->GetOutputPort());
+
+		vtkSmartPointer<vtkActor> test_actor2 = vtkSmartPointer<vtkActor>::New();
+		test_actor2->SetMapper(test_mapper2);
+		test_actor2->GetProperty()->SetColor(1, 0, 0);
+
+		this->m_pRenderer->AddActor(test_actor2);*/
 
 		QByteArray ba = result.toLocal8Bit();
 		const char* data = ba.data();
@@ -2249,8 +2284,8 @@ void ProjectMainWindow::onSaveOBJDialog()
 {
 	if (!this->m_style->finish)
 		return;
-	QString screw_stl_save_path = QFileDialog::getSaveFileName(this, tr("save"), "../");
-	if (screw_stl_save_path.isEmpty())
+	QString stl_save_path = QFileDialog::getSaveFileName(this, tr("save"), "../");
+	if (stl_save_path.isEmpty())
 	{
 		QMessageBox::warning(this, tr("warning"), tr("can not find the path!"));
 		this->output_pte->appendPlainText("\n--Fail to save STL file!\n");
@@ -2262,8 +2297,8 @@ void ProjectMainWindow::onSaveOBJDialog()
 	//stl_save_path.append(".stl");
 
 	// 支持带中文路径的读取
-	QString screw1_stl_save_path = screw_stl_save_path;
-	screw1_stl_save_path.append("1.stl");
+	QString screw1_stl_save_path = stl_save_path;
+	screw1_stl_save_path.append("_screw1.stl");
 	QByteArray ba1 = screw1_stl_save_path.toLocal8Bit();
 	const char* screw1_fileName_str = ba1.data();
 
@@ -2277,10 +2312,10 @@ void ProjectMainWindow::onSaveOBJDialog()
 	screw1_stlWriter->SetInputConnection(screw1_stlFilter->GetOutputPort());
 	screw1_stlWriter->Write();
 	screw1_stlWriter->Update();
-	
-	progressMiddle();
-	QString screw2_stl_save_path = screw_stl_save_path;
-	screw2_stl_save_path.append("2.stl");
+	QApplication::processEvents();
+
+	QString screw2_stl_save_path = stl_save_path;
+	screw2_stl_save_path.append("_screw2.stl");
 	QByteArray ba2 = screw2_stl_save_path.toLocal8Bit();
 	const char* screw2_fileName_str = ba2.data();
 
@@ -2291,11 +2326,76 @@ void ProjectMainWindow::onSaveOBJDialog()
 	screw2_stlWriter->SetInputConnection(screw2_stlFilter->GetOutputPort());
 	screw2_stlWriter->Write();
 	screw2_stlWriter->Update();
+	QApplication::processEvents();
+
+	QString base_stl_save_path = stl_save_path;
+	base_stl_save_path.append("_base.stl");
+	QByteArray ba_base = base_stl_save_path.toLocal8Bit();
+	const char* base_fileName_str = ba_base.data();
+
+	//减少三角网格
+	vtkSmartPointer<vtkTriangleFilter> base_stlFilter = vtkSmartPointer<vtkTriangleFilter>::New();//对polyData处理
+	base_stlFilter->SetInputData(this->m_style->base_poly_data);
+
+	//写出为STL格式
+	vtkSmartPointer<vtkSTLWriter> base_stlWriter = vtkSmartPointer<vtkSTLWriter>::New();
+	base_stlWriter->SetFileName(base_fileName_str);
+	base_stlWriter->SetInputConnection(base_stlFilter->GetOutputPort());
+	base_stlWriter->Write();
+	base_stlWriter->Update();
+	QApplication::processEvents();
+
+	progressMiddle();
+
+	QString bone_stl_save_path = stl_save_path;
+	bone_stl_save_path.append("_bone.stl");
+	QByteArray ba_bone = bone_stl_save_path.toLocal8Bit();
+	const char* bone_fileName_str = ba_bone.data();
+
+	//减少三角网格
+	
+	vtkSmartPointer<vtkTriangleFilter> bone_stlFilter = vtkSmartPointer<vtkTriangleFilter>::New();//对polyData处理
+	bone_stlFilter->SetInputData(this->m_style->curBonePolyData);
+
+	//写出为STL格式
+	vtkSmartPointer<vtkSTLWriter> bone_stlWriter = vtkSmartPointer<vtkSTLWriter>::New();
+	bone_stlWriter->SetFileName(bone_fileName_str);
+	bone_stlWriter->SetInputConnection(bone_stlFilter->GetOutputPort());
+	bone_stlWriter->Write();
+	bone_stlWriter->Update();
+	QApplication::processEvents();
+
+	//QString all_stl_save_path = stl_save_path;
+	//all_stl_save_path.append("_all.stl");
+	//QByteArray ba_all = all_stl_save_path.toLocal8Bit();
+	//const char* all_fileName_str = ba_all.data();
+
+	////减少三角网格
+	//vtkSmartPointer<vtkTriangleFilter> all_stlFilter = vtkSmartPointer<vtkTriangleFilter>::New();//对polyData处理
+	//all_stlFilter->SetInputData(this->m_style->curBonePolyData);
+	//all_stlFilter->AddInputData(this->m_style->base_poly_data);
+	//all_stlFilter->AddInputData(this->m_style->screw2_poly_data);
+	//all_stlFilter->AddInputData(this->m_style->screw1_poly_data);
+	//all_stlFilter->Update();
+
+	////写出为STL格式
+	//vtkSmartPointer<vtkSTLWriter> all_stlWriter = vtkSmartPointer<vtkSTLWriter>::New();
+	//all_stlWriter->SetFileName(all_fileName_str);
+	//all_stlWriter->SetInputConnection(all_stlFilter->GetOutputPort());
+	//all_stlWriter->Write();
+	//all_stlWriter->Update();
+	QApplication::processEvents();
+
+
 
 	QString info = "\n-Succeed in saving file:\n";
 	info.append(screw1_fileName_str);
 	info.append("!\n");
 	info.append(screw2_fileName_str);
+	info.append("!\n");
+	info.append(base_fileName_str);
+	info.append("!\n");
+	info.append(bone_fileName_str);
 	info.append("!\n");
 	this->output_pte->appendPlainText(info);
    
@@ -2446,6 +2546,7 @@ void ProjectMainWindow::segment()
 		vtkSmartPointer<vtkPolyDataMapper> seg_mapper =
 			vtkSmartPointer<vtkPolyDataMapper>::New();
 		seg_mapper->SetInputConnection(connectivityFilter->GetOutputPort());
+		this->m_style->curBonePolyData = connectivityFilter->GetOutput();
 		//m_style->bonePolyData = clip_data->GetOutput();
 
 
