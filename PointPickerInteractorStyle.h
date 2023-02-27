@@ -91,7 +91,8 @@ class PickerInteractorStyle : public vtkInteractorStyleTrackballCamera
 public:
 	pointStore* point;
 	vtkSmartPointer<vtkImageData> boneIMGData;
-	vtkSmartPointer<vtkPolyData> bonePolyData;
+	vtkSmartPointer<vtkPolyData> wholeBonePolyData;
+	vtkSmartPointer<vtkPolyData> curBonePolyData;
 	vtkSmartPointer<vtkPolyData> base_poly_data;
 	vtkSmartPointer<vtkPolyData> screw1_poly_data;
 	vtkSmartPointer<vtkPolyData> screw2_poly_data;
