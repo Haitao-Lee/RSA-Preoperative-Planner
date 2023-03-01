@@ -1421,9 +1421,9 @@ void ProjectMainWindow::path_display()
 		path1_cylinder->SetRadius(1);
 		path1_cylinder->SetResolution(10);
 		path1_cylinder->SetCenter(0, 0, 0);*/
-		this->m_style->finalPath[9] = this->m_style->point->getPoint(1)[0];
-		this->m_style->finalPath[10] = this->m_style->point->getPoint(1)[1];
-		this->m_style->finalPath[11] = this->m_style->point->getPoint(1)[2];
+		this->m_style->finalPath[6] = this->m_style->point->getPoint(1)[0];
+		this->m_style->finalPath[7] = this->m_style->point->getPoint(1)[1];
+		this->m_style->finalPath[8] = this->m_style->point->getPoint(1)[2];
 		this->m_style->finalPath[9] = this->m_style->finalPath[6] + this->m_style->planeNormal[0] * this->m_style->middleLen;
 		this->m_style->finalPath[10] = this->m_style->finalPath[7] + this->m_style->planeNormal[1] * this->m_style->middleLen;
 		this->m_style->finalPath[11] = this->m_style->finalPath[8] + this->m_style->planeNormal[2] * this->m_style->middleLen;
