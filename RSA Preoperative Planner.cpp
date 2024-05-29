@@ -11,7 +11,7 @@ int main( int argc , char *argv[] )
 {
 	QApplication app(argc, argv);
 	QTextCodec::setCodecForLocale(QTextCodec::codecForName("GB2312"));
-
+	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 	ProjectMainWindow *window = new ProjectMainWindow();
 	//window->setWindowFlags(Qt::FramelessWindowHint);
 

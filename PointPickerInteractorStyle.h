@@ -17,6 +17,7 @@
 #include "vtkProperty.h"
 #include "vtkCamera.h"
 #include "vtkPolyData.h"
+#include "vtkCommand.h"
 #include <iostream>
 #include "vtkContourFilter.h"
 #include "vtkPolyDataWriter.h"
@@ -113,7 +114,7 @@ public:
 	vtkSmartPointer< vtkImageCast> bone_img_cast;
 	vtkSmartPointer< vtkPoints> extract_points;
 	itk::SmartPointer<itk::ImageToVTKImageFilter<itk::Image<signed short, 3>>> bone_img_reader;
-	//vtkSmartPointer<vtkDICOMImageReader> bone_img_reader;
+
 	vtkSmartPointer<vtkImageInteractionCallback> callback1;
 	vtkSmartPointer<vtkImageInteractionCallback> callback2;
 	vtkSmartPointer<vtkImageInteractionCallback> callback3;

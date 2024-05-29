@@ -905,7 +905,6 @@ double* PickerInteractorStyle::inPlantPoint(double distance, double middlePoint[
 							   middlePoint[0],  middlePoint[1],  middlePoint[2] ,
 							   inPlantPoint2[0],inPlantPoint2[1],inPlantPoint2[2] };
 	//this->Interactor->GetRenderWindow()->GetRenderers()->GetFirstRenderer()->Ge
-
 	return inPlantPoint;
 }
 

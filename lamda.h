@@ -124,24 +124,24 @@ void ProjectMainWindow::lamda_segment()
 }
 
 
-void ProjectMainWindow::lamda_rightOrLeft()
-{
-    QFuture<void> future = QtConcurrent::run(this, &ProjectMainWindow::rightOrLeft);
-    while (!future.isFinished())
-    {
-        QApplication::processEvents(QEventLoop::AllEvents, 100);
-    }
-}
-
-
-void ProjectMainWindow::lamda_leftOrRight()
-{
-    QFuture<void> future = QtConcurrent::run(this, &ProjectMainWindow::leftOrRight);
-    while (!future.isFinished())
-    {
-        QApplication::processEvents(QEventLoop::AllEvents, 100);
-    }
-}
+//void ProjectMainWindow::lamda_rightOrLeft()
+//{
+//    QFuture<void> future = QtConcurrent::run(this, &ProjectMainWindow::rightOrLeft);
+//    while (!future.isFinished())
+//    {
+//        QApplication::processEvents(QEventLoop::AllEvents, 100);
+//    }
+//}
+//
+//
+//void ProjectMainWindow::lamda_leftOrRight()
+//{
+//    QFuture<void> future = QtConcurrent::run(this, &ProjectMainWindow::leftOrRight);
+//    while (!future.isFinished())
+//    {
+//        QApplication::processEvents(QEventLoop::AllEvents, 100);
+//    }
+//}
 
 
 void ProjectMainWindow::lamda_ajustOpacity()
