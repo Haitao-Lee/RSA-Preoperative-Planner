@@ -4,7 +4,8 @@
 
 # Citing
 If you use RSAPlanner in your research, please consider giving proper attribution by citing the following publication:
-'''
+
+```
 @article{li2022automatic,
   title={Automatic surgical planning based on bone density assessment and path integral in cone space for reverse shoulder arthroplasty},
   author={Li, Haitao and Xu, Jiangchang and Zhang, Dingzhong and He, Yaohua and Chen, Xiaojun},
@@ -15,4 +16,6 @@ If you use RSAPlanner in your research, please consider giving proper attributio
   year={2022},
   publisher={Springer}
 }
-'''
+```
+
+
