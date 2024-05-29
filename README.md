@@ -1,7 +1,7 @@
 # RSAPlanner: a preoperative an efficient planning software for Reverse Shoulder Arthroplasty
 
 
-![]([https://github.com/Haitao-Lee/auto_zygomatic_implantation/blob/main/fig/overview.png](https://github.com/Haitao-Lee/RSA-Preoperative-Planner/blob/main/fig/UI.png))
+![]([https://github.com/Haitao-Lee/auto_zygomatic_implantation/blob/main/fig/overview.png](https://github.com/Haitao-Lee/RSA-Preoperative-Planner/blob/main/fig/UI.png])
 
 
 # Citing
