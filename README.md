@@ -1,8 +1,6 @@
-# RSAPlanner: a preoperative an efficient planning software for Reverse Shoulder Arthroplasty
+# RSAPlanner: an efficient preoperative planning software for Reverse Shoulder Arthroplasty
 
-
-![]([https://github.com/Haitao-Lee/auto_zygomatic_implantation/blob/main/fig/overview.png](https://github.com/Haitao-Lee/RSA-Preoperative-Planner/blob/main/fig/UI.png])
-
+![Fig.1 The overview of our pipeline comprises three stages: (a) automatic zygomatic bone positioning through shape-prior-knowledge-based multi-planar cutting. (b) Generation of partitioned alternative trajectories guided by extracting dense 'backlit' points. (c) Utilization of a BIC-maximized algorithm to determine the optimal implanted paths.](https://github.com/Haitao-Lee/RSA-Preoperative-Planner/blob/main/fig/UI.png)
 
 # Citing
 If you use ZygoPlanner in your research, please consider giving proper attribution by citing the following publication:
